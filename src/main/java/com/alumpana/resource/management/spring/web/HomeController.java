@@ -46,7 +46,7 @@ public class HomeController {
 	
     @GetMapping("/")
     public String root(ModelMap model) {
-        return "index";
+        return userIsalive("index");
     }
     @GetMapping("/login")
     public String login(ModelMap model) {
@@ -55,35 +55,32 @@ public class HomeController {
     @RequestMapping("/access-denied")
     public String accessDenied(ModelMap model) {
     	model.addAttribute("loggedinuser", getPrincipal());
-        return "/error/access-denied";
+        return userIsalive("/error/access-denied");
     }
     
     @GetMapping("/user")
     public String userIndex(ModelMap model) {
-        return "user/index";
+        return userIsalive("user/index");
     }
     @GetMapping("/admin")
     public String admin(ModelMap model) {
-    	if (isCurrentAuthenticationAnonymous()) {
-			return "login";
-	    }
-        return "admin/admin";
+        return userIsalive("admin/admin");
     }
     @GetMapping("/student")
     public String student(ModelMap model) {
-        return "student/student";
+        return userIsalive("student/student");
     }
     @GetMapping("/staff")
     public String classteacher(ModelMap model) {
-        return "staff/staff";
+        return userIsalive("staff/staff");
     }
     @GetMapping("/hod")
     public String hod(ModelMap model) {
-        return "hod/hod";
+        return userIsalive("hod/hod");
     }
     @GetMapping("/parent")
     public String parent(ModelMap model) {
-        return "parent/parent";
+        return userIsalive("parent/parent");
     }
     
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
@@ -119,9 +116,9 @@ public class HomeController {
 	    return authenticationTrustResolver.isAnonymous(authentication);
 	}
 	
-	public String isAlive (String page) {
+	public String userIsalive (String page) {
 		if (isCurrentAuthenticationAnonymous()) {
-			return "login";
+			page = "/login";
 	    }
 		return page;
 	}
