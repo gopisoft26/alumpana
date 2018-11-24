@@ -87,7 +87,7 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 		String page = "/login";
 
 		if (isUser) {
-			page = "/homepage.html";
+			page = "/user";
 		} else if (isAdmin) {
 			page = "/admin";
 		} else if (isStudent) {

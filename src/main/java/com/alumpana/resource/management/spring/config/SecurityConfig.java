@@ -58,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/css/**",
                             "/img/**",
                             "/webjars/**").permitAll()
-                    .antMatchers("/list")
+                    .antMatchers("/")
     				.access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
     			.antMatchers("/admin/**")
     				.access("hasRole('ADMIN')")
@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  			   	.usernameParameter("username")
  			    .passwordParameter("password")
  			    	.and()
-                .exceptionHandling().accessDeniedPage("/Access_Denied")
+                .exceptionHandling().accessDeniedPage("/access-denied")
 				  .and().sessionManagement().invalidSessionUrl("/login");
     }
 
