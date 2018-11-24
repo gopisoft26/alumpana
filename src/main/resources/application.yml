@@ -1,5 +1,6 @@
 server:
   port: 8080
+  context-path: /portal
 
 spring:
   thymeleaf:
@@ -19,6 +20,6 @@ spring:
 logging:
   level:
     root: WARN
-    com.memorynotfound: DEBUG
+    com.alumpana.resource: DEBUG
     org.springframework.web: INFO
     org.springframework.security: INFO

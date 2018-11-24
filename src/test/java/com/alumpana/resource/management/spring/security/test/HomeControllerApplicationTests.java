@@ -1,4 +1,4 @@
-package com.memorynotfound.spring.security.test;
+package com.alumpana.resource.management.spring.security.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

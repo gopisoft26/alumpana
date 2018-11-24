@@ -1,4 +1,4 @@
-package com.memorynotfound.spring.security.web;
+package com.alumpana.resource.management.spring.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
