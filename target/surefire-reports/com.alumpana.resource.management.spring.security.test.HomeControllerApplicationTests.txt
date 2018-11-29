@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.162 sec <<< FAILURE! - in com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests
+accessUnprotected(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0.106 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.accessUnprotected(HomeControllerApplicationTests.java:34)
+
+loginUserAccessProtected(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0.038 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.loginUserAccessProtected(HomeControllerApplicationTests.java:62)
+
+accessProtectedRedirectsToLogin(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.accessProtectedRedirectsToLogin(HomeControllerApplicationTests.java:40)
+
+loginUser(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0.002 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.loginUser(HomeControllerApplicationTests.java:49)
+
+loginUserAccessProtectedInvalid(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.loginUserAccessProtectedInvalid(HomeControllerApplicationTests.java:73)
+
+loginUserValidateLogout(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.loginUserValidateLogout(HomeControllerApplicationTests.java:84)
+
+loginInvalidUser(com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.alumpana.resource.management.spring.security.test.HomeControllerApplicationTests.loginInvalidUser(HomeControllerApplicationTests.java:55)
+

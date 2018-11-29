@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.alumpana.resource.management</groupId>
     <artifactId>alumpana</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0</version>
     <url>http://alumpana.com</url>
     <name>alumpana - ${project.artifactId}</name>
 
