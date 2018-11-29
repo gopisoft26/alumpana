@@ -11,12 +11,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.alumpana.resource.management.spring.web.LoggingAccessDeniedHandler;
 
@@ -52,7 +54,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        		http.authorizeRequests()
+    	http.csrf().disable()
+    	.authorizeRequests()
                     .antMatchers(
                             "/js/**",
                             "/css/**",
@@ -71,7 +74,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  			    .passwordParameter("password")
  			    	.and()
                 .exceptionHandling().accessDeniedPage("/access-denied")
-				  .and().sessionManagement().invalidSessionUrl("/login");
+                .and()
+                .logout().deleteCookies("JSESSIONID")
+                .and()
+                .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(100)
+                .and()
+                .sessionManagement()
+                .sessionFixation().migrateSession()
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .invalidSessionUrl("/login")
+                .maximumSessions(1)
+                .expiredUrl("/login");
     }
 
     /*@Override

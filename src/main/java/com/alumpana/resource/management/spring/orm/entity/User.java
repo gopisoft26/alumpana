@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,7 +20,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="APP_USER")
-public class User implements Serializable{
+public class User extends Tracker implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -45,7 +46,7 @@ public class User implements Serializable{
 	private String email;
 
 	@NotEmpty
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinTable(name = "APP_USER_USER_PROFILE", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })

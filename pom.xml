@@ -99,6 +99,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.codahale.metrics/metrics-core -->
+		<dependency>
+		    <groupId>com.codahale.metrics</groupId>
+		    <artifactId>metrics-core</artifactId>
+		    <version>3.0.2</version>
+		</dependency>
 		
     </dependencies>
 
@@ -108,6 +114,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.3</version>
+				<configuration>
+					<appName>alumpana</appName>
+					<warFile>./target/alumpana-1.0.war</warFile>
+					<!-- <processTypes>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.spring.app.SpringBootWebApplication</web>
+					</processTypes> -->
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 

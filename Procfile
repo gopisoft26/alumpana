@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -cp ./target/alumpana-1.0.war

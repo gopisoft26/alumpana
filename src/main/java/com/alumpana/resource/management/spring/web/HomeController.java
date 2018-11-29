@@ -14,9 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.alumpana.resource.management.spring.orm.service.UserProfileService;
 import com.alumpana.resource.management.spring.orm.service.UserService;
 
@@ -83,7 +81,7 @@ public class HomeController {
         return userIsalive("parent/parent");
     }
     
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
+    @GetMapping("/logout")
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null){    
